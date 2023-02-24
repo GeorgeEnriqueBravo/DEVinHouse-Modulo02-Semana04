@@ -16,50 +16,67 @@ Após o download, abra a pasta "ExerciciosM02S04" utilizando o software `Intelli
 ---
 
 # Lista de exercícios <img width="75px" alt="Philips" src="ExerciciosM02S04/images/lista.png"/>
-### [M2S03] Ex 1 - Clínica de Emagrecimento
+### [M2S04] Ex 1 - Herança e Polimorfismo
 
-Vamos criar um sistema para uma clínica de emagrecimento. Vamos começar pela Classe Clínica. Essa Classe deve ter os atributos nome do dono, nome da clínica, CNPJ, endereço (esse deve ser o logradouro) e o código da Clínica.
+a) Crie a interface **"Operavel"**, com os métodos:
 
-### [M2S03] Ex 2 - Cálculo do IMC
+- depositar(double valor)
+- sacar(double valor)
 
-Vamos criar um método para calcular o IMC dos pacientes que veem a Clínica. Crie esse método dentro da classe Clínica e esse método deve retornar o número do IMC e também deve exibir no console qual é a categoria do IMC da pessoa com base na tabela em anexo.
+b) Crie a classe Abstrata **Conta** com o atributo "saldo" (double) e um método protegido (protected)
 
-Esse método deve receber os parâmetros: peso e altura
+- obterSaldoAtual()
 
-Formula IMC = peso / (altura)².
+c) Crie uma classe **"ContaCorrente"** que implemente a interface Operavel e herde da classe Conta. Faça uma implementação dos métodos herdados.
 
-### [M2S03] Ex 3 - Cliente
+### [M2S04] Ex 2 - Sobrescrita
 
-Crie uma classe Cliente que contenha os atributos peso, altura e idade.
+a) Crie uma classe '**Funcionario**' com o método público "obterCargo" que retorne uma String com o texto "Sou Funcionário". <br>
+b) Crie uma classe **Gerente** que herde de Funcionário, sobrescrevendo o método de obter cargo com o texto "Sou Gerente". <br>
+c) Transforme a classe Gerente numa classe que não pode mais ser extendida (ou seja, que não pode ter subclasses). <br>
 
-Adicione um novo atributo na Classe Clinica que receba uma Lista de Clientes, essa Lista deve conter todos os Cliente dessa Clinica.
+### [M2S04] Ex 3 - Interfaces
 
-### [M2S03] Ex 4 - Encapsulamento
+a) Crie uma Interface chamada "**Tributavel**", que tenha o método "calcularValorComImposto". <br>
+b) Crie uma classe chamada "**Produto**" que implemente esta interface criada anteriormente. <br>
+Nesta classe crie os atributos "valor" e "valor imposto", ambos do tipo double. <br>
+No método herdado, retorne a soma dos atributos de valores.
 
-Adicione um encapsulamento nas classes criadas anteriormente. Para o atributo Lista de Cliente adicione um método que nos permita adicionar um Cliente por vez a essa lista.
+### [M2S04] Ex 4 - Exceções
 
-### [M2S03] Ex 5 - Construtores
+Escreva um código que pergunte ao usuário (pela linha de comando) sua idade.
 
-Adicioner construtores e cada classe anterior.
-Adicione na Classe Cliente um construtor que receba apenas altura e peso e um construtor que receba todos os atributos.
+Caso seja informado um valor negativo, zero ou maior que cem, lance uma exceção que seja capturada por um bloco de try-catch e imprima no console uma mensagem explicativa para o usuário, e a seguir repita a pergunta para o usuário até que seja informado um valor de idade válido.
 
-Adicione na Classe Clinica um construtor que recebe apenas o nome do dono e um construtor que rebe o nome do dono e um Lista de Clientes.
+Neste exercício é livre para se criar uma exceção própria ou usar alguma exceção já existente na linguagem.
 
-### [M2S03] Ex 6 - Tratamento
+Quando for informado uma idade válida, imprima no console a frase: "Olá, você tem xx anos de idade!"
 
-Crie um método chamado tratamento que receba um Cliente, esse método vai reduzir o peso do Cliente em 5 quilos e após isso irá retornar o novo peso do Cliente.
+### [M2S04] Ex 5 - Visibilidade protected
 
-Esse método deve receber como parâmetros o id do Cliente na lista da clinica, e caso o cliente não exista ele deve exibir uma mensagem dizendo “cliente não identificado“. O peso do Cliente identificado deve ser alterada após a execução do método.
-    
-### [M2S03] Ex 7 - Sobrecarga do Tratamento
-    
-Crie um método chamado tratamento que receba um Cliente e um valor numérico, esse método vai reduzir o peso do Cliente pelo valor recebido no método e após isso irá retornar o novo peso do Cliente.
+a) Crie uma classe “**Pessoa**“ com os atributos protected “nome” e “sobrenome”. Adicione nesta classe também um método protected “obterNomeCompleto()” que retorna uma String com nome e sobrenome da pessoa concatenados.
 
-Esse método deve receber como parâmetros o id do Cliente na lista da clinica e o valor a ser reduzido do peso, e caso o cliente não exista ele deve exibir uma mensagem dizendo “cliente não identificado“. O peso do Cliente identificado deve ser alterada após a execução do método.
+b) Crie uma outra classe “**Aluno**” que herde de “Pessoa”, onde tenha o atributo privado “matrícula” do tipo String e um método “registrar()”. Esse método “registrar()” deve retornar uma String contendo a frase: “Sou o <nome + sobrenome> e minha matrícula é <matrícula>”. Use os métodos e/ou atributos da superclasse para implementar este método “registrar()”.
 
-### [M2S03] Ex 8 - Listagem de Clientes
-    
-Crie um método na Classe Clínica que retorne a lista com todos os Cliente dessa clinica. Esse método também deve exibir o nome de todos o clientes dessa Clínica.
+### [M2S04] Ex 6 - Exceções
+
+Crie uma classe de Teste, e nela crie um método “validar” que recebe como argumentos um parâmetro valorCampo do tipo String, e outro parâmetro do tipo tamanhoMaximo do tipo Inteiro.
+
+A assinatura do método deve ser desta forma:
+
+```
+public void validar(String valorCampo, Integer valorMaximoCampo)
+```
+
+Na sequência, crie uma exceção customizada (própria) chamada “TamanhoInvalidoException”. Esta exceção deve ser ‘checked’, ou seja, extender a classe ‘Exception’.
+
+Na implementação do método ‘validar’, atenda as seguintes situações:
+
+a) Se o conteúdo de algum dos argumentos (valor ou tamanho) forem nulos, ou se o parâmetro de valor for um número negativo, o método deve lançar a exceção **IllegalArgumentException** (do pacote java.lang).
+
+b) Se o tamanho do parâmetro “valorCampo” (nro de caracteres da String) for maior que o número constante no argumento ‘valorMaximoCampo’, o método deve lançar a exceção criada '**TamanhoInvalidoException**'.
+
+c) Caso não tenha estas inconsistências, o método não deve retornar nada.
 
 ---
 
