@@ -1,6 +1,4 @@
-package Ex1ao3;
-
-import Ex1ao3.Tributavel;
+package Ex3;
 
 public class Produto implements Tributavel {
     Double valor;
@@ -8,6 +6,7 @@ public class Produto implements Tributavel {
 
     @Override
     public Double calcularValorComImposto() {
+
         return valor + valorImposto;
     }
 }

@@ -1,5 +1,7 @@
-package Ex1ao3;
+package Ex1;
 
+// extends pode apenas um
+// implements pode vários seprando por |
 public class ContaCorrente extends Conta implements Operavel {
 
     @Override

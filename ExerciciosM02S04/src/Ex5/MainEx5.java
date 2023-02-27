@@ -1,12 +1,10 @@
 package Ex5;
 
-public class MaixEx5 {
+public class MainEx5 {
 
     public static void main(String[] args) {
 
         Pessoa pessoa = new Pessoa("Bia", "Alcântara");
-//        pessoa.nome = "Bia";
-//        pessoa.sobreNome = "Alcantara";
 
         String nomePessoa = pessoa.obterNomeCompleto(pessoa.nome, pessoa.sobreNome);
 

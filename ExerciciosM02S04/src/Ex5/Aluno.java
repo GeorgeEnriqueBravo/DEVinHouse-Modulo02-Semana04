@@ -13,9 +13,7 @@ public class Aluno extends Pessoa {
 
     private String matricula;
 
-
     public String registrar(String nomeCompleto) {
-//        return "Sou o " + this.nome + this.sobreNome + " e minha matrícula é " + matricula;
         return "Sou o " + nomeCompleto + " e minha matrícula é " + matricula;
     }
 

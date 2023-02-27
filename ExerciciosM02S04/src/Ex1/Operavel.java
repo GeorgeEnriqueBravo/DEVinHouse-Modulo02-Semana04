@@ -1,4 +1,4 @@
-package Ex1ao3;
+package Ex1;
 
 public interface Operavel {
 
